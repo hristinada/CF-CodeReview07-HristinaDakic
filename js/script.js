@@ -6,7 +6,7 @@ var locations = [];
 //==================================================
 class Location {
 	constructor (created, name, city, zip, adress, image) {
-		this.created = new Date();
+		this.created = created;
 		this.name = name;
 		this.city = city;
 		this.zip = zip;
@@ -29,7 +29,7 @@ class Location {
 		return `
 			<p class="text-dark font-weight-bold">${this.name}</p>
 			<img src="img/${this.image}" alt="image" class="img-thumbnail d-none d-md-block">
-			<p class="font-weight-lighter small font-italic">Created: ${this.created.toUTCString()}</p>
+			<p class="font-weight-lighter small font-italic">Created: ${this.created.toDateString() + " " + this.created.getHours() + ":" + this.created.getMinutes()}</p>
 			<p class="mt-3 mb-0">${this.adress + ", " + this.zip + " " + this.city}</p>
 			`;
 	};
@@ -37,10 +37,10 @@ class Location {
 }
 
 
-new Location ("", "St. Charles Church", "Vienna", "1010", "Karlsplatz 1", "charles.JPG");
-new Location ("", "KunstHausWien", "Vienna", "1030", "Untere Weißgerberstraße 13", "hundertwasser.JPG");
-new Location ("", "Stadtpark City Park", "Vienna", "1010", "Parkring 1", "stadtpark.JPG");
-new Location ("", "Schönbrunn Palace", "Vienna", "1130", "Schönbrunner Schloßstraße 47", "schönbrunn.JPG");
+new Location (new Date(2018, 8, 17, 10, 33), "St. Charles Church", "Vienna", "1010", "Karlsplatz 1", "charles.JPG");
+new Location (new Date(2019, 4, 17, 12, 20), "KunstHausWien", "Vienna", "1030", "Untere Weißgerberstraße 13", "hundertwasser.JPG");
+new Location (new Date(2017, 2, 17, 14, 40), "Stadtpark City Park", "Vienna", "1010", "Parkring 1", "stadtpark.JPG");
+new Location (new Date(2019, 6, 17, 15, 50), "Schönbrunn Palace", "Vienna", "1130", "Schönbrunner Schloßstraße 47", "schönbrunn.JPG");
 
 for (i=0; i<locations.length; i++) {
 	if (locations[i].constructor.name == "Location") {
@@ -70,8 +70,8 @@ class Restaurant extends Location {
 
 }
 
-new Restaurant ("", "ALL REIS", "Vienna", "1150", "Schweglerstraße 12", "allreis.JPG", "+431 7864668", "Thai", "www.allreis.com");
-new Restaurant ("", "Cafe Ansari", "Vienna", "1020", "Praterstraße 15", "ansari.JPG", "+431 2765102", "Georgian", "www.cafeansari.at");
+new Restaurant (new Date(2018, 7, 15, 9, 30), "ALL REIS", "Vienna", "1150", "Schweglerstraße 12", "allreis.JPG", "+431 7864668", "Thai", "www.allreis.com");
+new Restaurant (new Date(2018, 10, 17, 10, 33), "Cafe Ansari", "Vienna", "1020", "Praterstraße 15", "ansari.JPG", "+431 2765102", "Georgian", "www.cafeansari.at");
 
 for (i=0; i<locations.length; i++) {
 	if (locations[i].constructor.name == "Restaurant") {
@@ -103,9 +103,9 @@ class Event extends Location {
 }
 
 
-new Event ("", "Sukhishvili - Georgisches Nationalballett", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "sukhi.jpeg", "www.stadthalle.com", "18.11.2019", "20:00", "from 63,70 EUR");
-new Event ("", "Wiener Stadtfest Aftershow Party", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "fest.jpeg", "www.stadthalle.com", "31.08.2019", "18:00", "Free" );
-new Event ("", "Max Raabe & Palast Orchester", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "max.jpeg", "www.stadthalle.com", "08.05.2020", "20:00", "from 63,00 EUR" );
+new Event (new Date(2018, 5, 17, 10, 33), "Sukhishvili - Georgisches Nationalballett", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "sukhi.jpeg", "www.stadthalle.com", "18.11.2019", "20:00", "from 63,70 EUR");
+new Event (new Date(2018, 6, 17, 10, 33), "Wiener Stadtfest Aftershow Party", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "fest.jpeg", "www.stadthalle.com", "31.08.2019", "18:00", "Free" );
+new Event (new Date(2019, 3, 17, 10, 33), "Max Raabe & Palast Orchester", "Vienna", "1150", "Wiener Stadthalle, Hall F, Roland Rainer Platz 1", "max.jpeg", "www.stadthalle.com", "08.05.2020", "20:00", "from 63,00 EUR" );
 
 for (i=0; i<locations.length; i++) {
 	if (locations[i].constructor.name == "Event") {
